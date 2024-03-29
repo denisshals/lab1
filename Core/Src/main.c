@@ -333,7 +333,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void button_Task() {
+void poll_Task() {
     LCD_Init();
     setDescription();
     for(;;) {
@@ -369,7 +369,7 @@ void LCD_Task() {
 	}
 	vTaskDelete(NULL);
 }
-void poll_Task() {
+void button_Task() {
 	for(;;) {
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adcRaw, 2);
 		vTaskSuspend(NULL);
