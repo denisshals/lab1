@@ -333,7 +333,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void LCD_Task() {
+void button_Task() {
     LCD_Init();
     setDescription();
     for(;;) {
@@ -348,7 +348,7 @@ void LCD_Task() {
     }
     vTaskDelete(NULL);
 }
-void button_Task() {
+void LCD_Task() {
 	for(;;) {
 		vTaskSuspend(NULL);
 		button_pin.previous_state = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
