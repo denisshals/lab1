@@ -348,7 +348,7 @@ void LCD_Task() {
     }
     vTaskDelete(NULL);
 }
-void button_Task() {
+void poll_Task() {
 	for(;;) {
 		vTaskSuspend(NULL);
 		button_pin.previous_state = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
@@ -369,7 +369,7 @@ void button_Task() {
 	}
 	vTaskDelete(NULL);
 }
-void poll_Task() {
+void button_Task() {
 	for(;;) {
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adcRaw, 2);
 		vTaskSuspend(NULL);
